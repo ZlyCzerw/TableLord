@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "713718637800",
+    "firebase_url": "https://tablelord-701c9.firebaseio.com",
+    "project_id": "tablelord-701c9",
+    "storage_bucket": "tablelord-701c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713718637800:android:fb14c5bf562462f9",
+        "android_client_info": {
+          "package_name": "pl.tablelord.tablelord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713718637800-07ca144f3k6nqtuu8ssik0t51ekre6md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmkH3mgNMIi5DIOoG-P4EVLyPinR0lr1U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
