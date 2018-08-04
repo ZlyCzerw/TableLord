@@ -2,12 +2,19 @@ package pl.tablelord.tablelord;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +23,9 @@ public class MainActivity extends Activity {
     private ListView lvTables;
     private TableListAdapter adapter;
     private List<Table> mTableList;
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +34,28 @@ public class MainActivity extends Activity {
         lvTables=(ListView)findViewById(R.id.listView_tables);
         mTableList = new ArrayList<>();
         // Here add from DB
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Sale/Sala 1/Stoliki/stolik1/wolny");
+        //save "false" to database:
+       // myRef.setValue(0);
 
+        Integer wolny;
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String wolny = String.valueOf(dataSnapshot.getValue());
+                int wolnyInt = Integer.parseInt(wolny);
+                //int wolny = (int) dataSnapshot.getValue(Object.class);
+                mTableList.add(new Table(1,1,1, wolnyInt));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+      //  mTableList.add(new Table(1,1,2,wolny));
         mTableList.add(new Table(1,100,2,1));
         mTableList.add(new Table(1,101,2,0));
         mTableList.add(new Table(1,102,2,1));
