@@ -2,16 +2,16 @@ package pl.tablelord.tablelord;
 
 public class Table {
     private int tableNo;
-    private int places;
+    private int seatsNo;
     private int roomNo;
-    private int status;
+    private boolean isFree;
 
 
-    public Table (int roomNo, int tableNo,int places, int status){
-        this.places=places;
+    public Table (int roomNo, int tableNo, int seatsNo, Boolean isFree){
+        this.seatsNo=seatsNo;
         this.roomNo=roomNo;
         this.tableNo=tableNo;
-        this.status=status;
+        this.isFree =isFree;
     }
 
     public int getTableNo() {
@@ -22,12 +22,12 @@ public class Table {
         this.tableNo = tableNo;
     }
 
-    public int getPlaces() {
-        return places;
+    public int getSeatsNo() {
+        return seatsNo;
     }
 
-    public void setPlaces(int places) {
-        this.places = places;
+    public void setSeatsNo(int seatsNo) {
+        this.seatsNo = seatsNo;
     }
 
     public int getRoomNo() {
@@ -38,11 +38,11 @@ public class Table {
         this.roomNo = roomNo;
     }
 
-    public int getStatus() {
-        return status;
+    public boolean isFree() {
+        return isFree;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setFree(boolean free) {
+        isFree = free;
     }
 }
